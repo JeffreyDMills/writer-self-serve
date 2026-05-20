@@ -728,10 +728,20 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
   font-size: 17px; color: var(--slate); line-height: 1.55; margin: 0;
 }
 .activation-grid {
-  display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  grid-template-areas:
+    "selfserve delivery"
+    "managed   why";
+  gap: 18px 32px;
   align-items: stretch;
 }
-.right-stack { display: flex; flex-direction: column; gap: 18px; }
+.activation-grid .tier.featured { grid-area: selfserve; }
+.activation-grid .tier.managed { grid-area: managed; }
+.activation-grid .delivery-mockup { grid-area: delivery; }
+.activation-grid .why-card { grid-area: why; }
+/* legacy wrappers flattened into the grid */
+.tiers, .right-stack { display: contents; }
 
 /* WHY TOPTAL CARD */
 .why-card {
@@ -991,7 +1001,14 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
   .copy-grid { grid-template-columns: 1fr; }
   .how-grid { grid-template-columns: 1fr; }
   .closing-inner { grid-template-columns: 1fr; gap: 30px; }
-  .activation-grid { grid-template-columns: 1fr; }
+  .activation-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "selfserve"
+      "delivery"
+      "managed"
+      "why";
+  }
   .form-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -1810,7 +1827,6 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
     </div>
 
     <div class="activation-grid">
-      <div class="tiers">
         <div class="tier featured">
           <span class="tier-tag">Self-serve</span>
           <div class="tier-head">
@@ -1853,9 +1869,7 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </div>
-      </div>
 
-      <div class="right-stack">
       <div class="delivery-mockup">
         <div class="delivery-head">
           <div class="check">
@@ -1866,7 +1880,6 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
             <h3>Your campaign is ready · Old Spice · Q3 Conquesting</h3>
           </div>
         </div>
-        <div class="delivery-subhead"><strong>4 assets</strong> · 334 KB · Generated in 8m 14s</div>
         <div class="delivery-files">
           <div class="file-card">
             <div class="file-icon json">JSON</div>
@@ -1937,7 +1950,6 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
             <div><div class="why-title">Built to scale past self-serve.</div><div class="why-body">Same engine runs across catalogs of any size, with recurring optimization loops on the managed tier.</div></div>
           </li>
         </ul>
-      </div>
       </div>
     </div>
   </div>
