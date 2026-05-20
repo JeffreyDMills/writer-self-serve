@@ -2041,7 +2041,6 @@ PRODUCTS.forEach((p, idx) => {
   const card = document.createElement("div");
   card.className = "product-card";
   // Build headlines: product anchor + shared 10
-  const productAnchor = p.n.split(" · ")[0] + " · " + p.n.split(" · ")[1].slice(0,16);
   let hlHtml = '<li><span>' + p.n + '</span><span class="ch">' + Math.min(p.n.length, 30) + '</span></li>';
   SHARED_HEADLINES.forEach(([h, c]) => {
     hlHtml += '<li><span>' + h + '</span><span class="ch">' + c + '</span></li>';
