@@ -731,6 +731,49 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
   display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px;
   align-items: stretch;
 }
+.right-stack { display: flex; flex-direction: column; gap: 18px; }
+
+/* WHY TOPTAL CARD */
+.why-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 26px 28px 28px;
+  box-shadow: 0 8px 22px -16px rgba(11,20,57,0.18);
+}
+.why-card .eyebrow {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--blue); font-weight: 700; margin-bottom: 6px;
+}
+.why-card h3 {
+  font-size: 22px; font-weight: 800; letter-spacing: -0.01em;
+  color: var(--ink); margin: 0 0 4px;
+}
+.why-card .sub {
+  font-size: 13.5px; color: var(--slate); margin-bottom: 16px;
+}
+.why-list { list-style: none; padding: 0; margin: 0; }
+.why-list li {
+  display: flex; gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.why-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.why-list li:first-child { padding-top: 0; }
+.why-list .ico {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--blue-soft); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.why-list .why-title {
+  font-size: 14.5px; font-weight: 700; color: var(--ink);
+  margin-bottom: 2px;
+  letter-spacing: -0.005em;
+}
+.why-list .why-body {
+  font-size: 13px; color: var(--slate); line-height: 1.5;
+}
 
 /* PRICING CARDS */
 .tiers { display: flex; flex-direction: column; gap: 16px; }
@@ -746,11 +789,12 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
   box-shadow: 0 12px 28px -12px rgba(32,78,207,0.25);
 }
 .tier-tag {
-  position: absolute; top: -10px; left: 28px;
+  display: inline-block;
   font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
   font-weight: 700; color: var(--white);
   background: var(--blue);
   padding: 5px 11px; border-radius: 4px;
+  margin-bottom: 16px;
 }
 .tier.managed .tier-tag { background: var(--ink); }
 .tier-head { display:flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
@@ -1811,6 +1855,7 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </div>
       </div>
 
+      <div class="right-stack">
       <div class="delivery-mockup">
         <div class="delivery-head">
           <div class="check">
@@ -1868,6 +1913,31 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
           <span><strong>Sent to your inbox</strong> plus a shareable Google Drive folder. Ready for Google Ads upload.</span>
         </div>
+      </div>
+
+      <div class="why-card">
+        <div class="eyebrow">Why Toptal</div>
+        <h3>What you don't get from a tool alone.</h3>
+        <div class="sub">Anyone can ship AI output. Toptal ships campaigns marketers can actually launch.</div>
+        <ul class="why-list">
+          <li>
+            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+            <div><div class="why-title">Toptal expert review on every run.</div><div class="why-body">Certified Google Ads specialists review the asset set before delivery. Human-in-the-loop quality, not AI slop.</div></div>
+          </li>
+          <li>
+            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div><div class="why-title">Production-grade, not draft.</div><div class="why-body">Character-validated copy, schema-validated JSON, ready for the launch meeting. No cleanup required.</div></div>
+          </li>
+          <li>
+            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
+            <div><div class="why-title">Direct path to launch.</div><div class="why-body">Managed tier hands the campaign straight to a Toptal expert who pushes it live in Google Ads.</div></div>
+          </li>
+          <li>
+            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></div>
+            <div><div class="why-title">Built to scale past self-serve.</div><div class="why-body">Same engine runs across catalogs of any size, with recurring optimization loops on the managed tier.</div></div>
+          </li>
+        </ul>
+      </div>
       </div>
     </div>
   </div>
