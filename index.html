@@ -711,6 +711,85 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
   margin: 10px 0 6px;
 }
 
+/* UPLOAD ZONE */
+.upload-zone {
+  border: 2px dashed var(--line-strong);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 26px 20px;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+  cursor: pointer;
+  min-height: 152px;
+  display: flex; align-items: center; justify-content: center;
+}
+.upload-zone.dragover { border-color: var(--blue); background: var(--blue-soft); }
+.upload-zone.has-file { border-style: solid; border-color: var(--line); cursor: default; background: var(--white); }
+.upload-empty .up-ico { color: var(--blue); margin-bottom: 10px; }
+.upload-empty .upload-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.upload-empty .upload-sub { font-size: 13px; color: var(--mute); }
+.link-btn {
+  background: none; border: none; color: var(--blue); font-weight: 700;
+  cursor: pointer; font-family: inherit; font-size: 13px; padding: 0; text-decoration: underline;
+}
+.file-chip {
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  text-align: left;
+}
+.file-chip-icon {
+  width: 44px; height: 44px; border-radius: 8px;
+  background: #1B7A5C; color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800; flex-shrink: 0;
+}
+.file-chip-info { flex: 1; min-width: 0; }
+.file-chip-name {
+  font-size: 14.5px; font-weight: 700; color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.file-chip-size { font-size: 12.5px; color: var(--mute); margin-top: 2px; }
+.file-chip-remove {
+  background: var(--surface); border: 1px solid var(--line); color: var(--mute);
+  width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+  font-size: 16px; line-height: 1; flex-shrink: 0; font-family: inherit;
+}
+.file-chip-remove:hover { background: var(--line); color: var(--ink); }
+
+/* RUN REFERENCE + ERROR */
+.run-ref {
+  margin-top: 16px; padding: 14px 16px;
+  background: var(--green-soft); border: 1px solid #BFE8D6; border-radius: 8px;
+  font-size: 13px; color: var(--ink);
+}
+.run-ref .rr-title { font-weight: 700; color: #14704F; display:flex; align-items:center; gap:8px; margin-bottom: 6px; }
+.run-ref code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12px; background: var(--white); border: 1px solid #BFE8D6;
+  padding: 1px 6px; border-radius: 4px; color: var(--ink);
+}
+.run-ref .rr-raw {
+  margin-top: 8px; font-size: 11.5px; color: var(--slate);
+}
+.run-ref .rr-raw summary { cursor: pointer; font-weight: 600; color: var(--green); }
+.run-ref .rr-raw pre {
+  margin-top: 6px; background: var(--code-bg); color: var(--code-ink);
+  padding: 12px 14px; border-radius: 6px; overflow-x: auto;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11.5px; line-height: 1.5;
+}
+.run-err {
+  margin-top: 16px; padding: 14px 16px;
+  background: #FCEEF0; border: 1px solid #F2C4CB; border-radius: 8px;
+  font-size: 13.5px; color: #8E2230; line-height: 1.55;
+}
+.run-err strong { font-weight: 800; }
+.live-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+  color: #14704F; background: var(--green-soft);
+  border: 1px solid #BFE8D6; padding: 5px 11px; border-radius: 999px;
+}
+.live-badge .badge-dot { background: var(--green); }
+
 /* ACTIVATION SECTION */
 .activation {
   background: var(--surface);
@@ -1524,29 +1603,43 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
   <div class="demo-card" id="demo">
     <div class="demo-card-header">
       <div class="demo-card-title">
-        <span class="demo-pill">Live demo</span>
-        <span>Old Spice conquesting Unilever</span>
+        <span class="demo-pill">Live</span>
+        <span>Run a campaign</span>
       </div>
-      <span class="badge-live"><span class="badge-dot"></span>Pre-loaded · ready to run</span>
+      <span class="badge-live"><span class="badge-dot"></span>Connected · live runs enabled</span>
     </div>
     <div class="demo-body">
       <div class="demo-inputs">
         <div class="input-block">
-          <label>1 · Product URLs <span style="color:var(--blue);">·</span> 10 loaded</label>
-          <div class="url-stack" id="urlStack"></div>
+          <label>1 · Product URL spreadsheet</label>
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="fileInput" accept=".xlsx,.xls" hidden>
+            <div class="upload-empty" id="uploadEmpty">
+              <div class="up-ico"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+              <div class="upload-title">Drop your product Excel here</div>
+              <div class="upload-sub">or <button type="button" class="link-btn" id="browseBtn">browse</button> · .xlsx with a Product URL column</div>
+            </div>
+            <div class="file-chip" id="fileChip" style="display:none">
+              <div class="file-chip-icon">XLSX</div>
+              <div class="file-chip-info">
+                <div class="file-chip-name" id="fileName"></div>
+                <div class="file-chip-size" id="fileSize"></div>
+              </div>
+              <button type="button" class="file-chip-remove" id="clearFileBtn" title="Remove">×</button>
+            </div>
+          </div>
           <div class="input-meta">
-            <span>Excel upload accepted in production</span>
-            <span class="input-meta-count">10 URLs ready</span>
+            <span>Need a test file? <a href="oldspice_products.xlsx" download>Download the Old Spice sample</a></span>
           </div>
         </div>
         <div class="input-block">
           <label>2 · Target keyword</label>
-          <input class="keyword-input" id="keywordInput" value="Unilever" readonly>
-          <div class="intent-note">Inferred intent: <strong>Competitor conquesting</strong>. Unilever owns Dove Men+Care, Axe, and Dr. Squatch. Old Spice is the conquesting advertiser.</div>
+          <input class="keyword-input" id="keywordInput" value="Unilever" placeholder="e.g. Unilever">
+          <div class="intent-note">The keyword sets campaign intent. A competitor name triggers a <strong>conquesting</strong> campaign. A category term triggers a category push.</div>
         </div>
       </div>
       <div class="run-row">
-        <div class="ctx">Click Run Campaign. The builder scrapes every URL, maps the SERP landscape, writes the ad copy, builds two SERP mockups, and drafts the campaign rationale.</div>
+        <div class="ctx">Run Campaign uploads your sheet and kicks off the build. It scrapes every URL, maps the SERP landscape, writes the ad copy, builds two SERP mockups, and drafts the strategy rationale.</div>
         <button class="btn-primary" id="runBtn" onclick="runCampaign()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
           Run Campaign
@@ -1554,12 +1647,14 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       </div>
 
       <div class="progress-card" id="progressCard">
-        <h3>Campaign Build · In Progress</h3>
-        <div class="progress-step" data-step="1"><div class="progress-icon">1</div><div class="progress-text">Scraping 10 product URLs. Extracting names, features, USPs, CTAs.</div></div>
-        <div class="progress-step" data-step="2"><div class="progress-icon">2</div><div class="progress-text">Mapping SERP landscape for "Unilever". Identifying top competitors.</div></div>
-        <div class="progress-step" data-step="3"><div class="progress-icon">3</div><div class="progress-text">Writing 130+ headlines, 40 descriptions, 4 sitelinks, 5 callouts.</div></div>
-        <div class="progress-step" data-step="4"><div class="progress-icon">4</div><div class="progress-text">Building two SERP mockup variants. Feature-led and conquesting-led.</div></div>
-        <div class="progress-step" data-step="5"><div class="progress-icon">5</div><div class="progress-text">Drafting campaign strategy rationale. ~900-word brief.</div></div>
+        <h3 id="progressTitle">Campaign Build · In Progress</h3>
+        <div class="progress-step" data-step="1"><div class="progress-icon">1</div><div class="progress-text">Uploading your sheet and triggering the campaign build.</div></div>
+        <div class="progress-step" data-step="2"><div class="progress-icon">2</div><div class="progress-text">Scraping product URLs. Extracting names, features, USPs, CTAs.</div></div>
+        <div class="progress-step" data-step="3"><div class="progress-icon">3</div><div class="progress-text">Mapping the SERP landscape and building the keyword plan.</div></div>
+        <div class="progress-step" data-step="4"><div class="progress-icon">4</div><div class="progress-text">Writing RSA copy, sitelinks, callouts, and structured snippets.</div></div>
+        <div class="progress-step" data-step="5"><div class="progress-icon">5</div><div class="progress-text">Building SERP mockups and drafting the strategy rationale.</div></div>
+        <div class="run-ref" id="runRef" style="display:none"></div>
+        <div class="run-err" id="runErr" style="display:none"></div>
       </div>
     </div>
   </div>
@@ -2760,13 +2855,61 @@ const SHARED_HEADLINES = [
   ["Unleash Your Swagger", 20]
 ];
 
-// Render URL stack
-const urlStack = document.getElementById("urlStack");
-PRODUCT_URLS.forEach((u, i) => {
-  const d = document.createElement("div");
-  d.innerHTML = '<span class="url-num">' + String(i + 1).padStart(2, "0") + '</span>' + u;
-  urlStack.appendChild(d);
+// File upload handling
+let selectedFile = null;
+const fileInput = document.getElementById("fileInput");
+const uploadZone = document.getElementById("uploadZone");
+const uploadEmpty = document.getElementById("uploadEmpty");
+const fileChip = document.getElementById("fileChip");
+
+function humanSize(bytes) {
+  if (bytes < 1024) return bytes + " B";
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+}
+function setFile(file) {
+  if (!file) return;
+  const name = file.name.toLowerCase();
+  if (!name.endsWith(".xlsx") && !name.endsWith(".xls")) {
+    alert("Please choose an Excel file (.xlsx or .xls).");
+    return;
+  }
+  selectedFile = file;
+  document.getElementById("fileName").textContent = file.name;
+  document.getElementById("fileSize").textContent = humanSize(file.size) + " · Excel";
+  uploadEmpty.style.display = "none";
+  fileChip.style.display = "flex";
+  uploadZone.classList.add("has-file");
+}
+function clearFile() {
+  selectedFile = null;
+  fileInput.value = "";
+  uploadEmpty.style.display = "block";
+  fileChip.style.display = "none";
+  uploadZone.classList.remove("has-file");
+}
+document.getElementById("browseBtn").addEventListener("click", (e) => { e.stopPropagation(); fileInput.click(); });
+document.getElementById("clearFileBtn").addEventListener("click", (e) => { e.stopPropagation(); clearFile(); });
+uploadZone.addEventListener("click", () => { if (!selectedFile) fileInput.click(); });
+fileInput.addEventListener("change", () => { if (fileInput.files[0]) setFile(fileInput.files[0]); });
+["dragenter", "dragover"].forEach(ev =>
+  uploadZone.addEventListener(ev, (e) => { e.preventDefault(); uploadZone.classList.add("dragover"); })
+);
+["dragleave", "drop"].forEach(ev =>
+  uploadZone.addEventListener(ev, (e) => { e.preventDefault(); uploadZone.classList.remove("dragover"); })
+);
+uploadZone.addEventListener("drop", (e) => {
+  if (e.dataTransfer.files && e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]);
 });
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result); // data URL; server strips the prefix
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
 
 // Render product list (RSA tab)
 const productList = document.getElementById("productList");
@@ -2824,32 +2967,115 @@ function scrollToDemo() {
   document.getElementById("demo").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function runCampaign() {
+const SPINNER_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10" stroke-dasharray="30 30"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/></circle></svg>';
+const PLAY_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+const CHECK_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+// Pull a likely session/run identifier out of whatever Writer returns.
+function extractRunRef(data) {
+  if (!data || typeof data !== "object") return null;
+  const keys = ["session_id", "sessionId", "run_id", "runId", "id", "execution_id", "executionId", "trigger_id", "triggerId"];
+  for (const k of keys) {
+    if (data[k]) return { label: k, value: String(data[k]) };
+  }
+  // search one level deep
+  for (const v of Object.values(data)) {
+    if (v && typeof v === "object") {
+      for (const k of keys) {
+        if (v[k]) return { label: k, value: String(v[k]) };
+      }
+    }
+  }
+  return null;
+}
+
+async function runCampaign() {
+  const keyword = document.getElementById("keywordInput").value.trim();
+  if (!selectedFile) {
+    alert("Choose a product Excel file first. Use the Download the Old Spice sample link if you need one.");
+    return;
+  }
+  if (!keyword) {
+    alert("Enter a target keyword.");
+    return;
+  }
+
   const btn = document.getElementById("runBtn");
   const card = document.getElementById("progressCard");
-  btn.disabled = true;
-  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10" stroke-dasharray="30 30"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/></circle></svg> Running…';
-  card.classList.add("active");
   const steps = document.querySelectorAll(".progress-step");
-  const delays = [800, 1100, 1400, 1100, 900];
+  const runRef = document.getElementById("runRef");
+  const runErr = document.getElementById("runErr");
 
-  let i = 0;
+  btn.disabled = true;
+  btn.innerHTML = SPINNER_SVG + " Running…";
+  card.classList.add("active");
+  runRef.style.display = "none";
+  runErr.style.display = "none";
+  steps.forEach(s => s.classList.remove("running", "done"));
+
+  // Step 1 is the real trigger.
+  steps[0].classList.add("running");
+
+  let triggerData = null;
+  try {
+    const fileBase64 = await fileToBase64(selectedFile);
+    const resp = await fetch("/api/run-campaign", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ keyword: keyword, filename: selectedFile.name, fileBase64: fileBase64 })
+    });
+    const txt = await resp.text();
+    try { triggerData = JSON.parse(txt); } catch (e) { triggerData = { raw: txt }; }
+
+    if (!resp.ok) {
+      steps[0].classList.remove("running");
+      const msg = (triggerData && triggerData.error) ? triggerData.error : ("HTTP " + resp.status);
+      runErr.innerHTML = "<strong>Couldn't reach the campaign engine.</strong> " + msg +
+        "<br>Check that CAMPAIGN_API_KEY is set in Vercel and the project was redeployed after setting it.";
+      runErr.style.display = "block";
+      btn.disabled = false;
+      btn.innerHTML = PLAY_SVG + " Run Campaign";
+      return;
+    }
+  } catch (e) {
+    steps[0].classList.remove("running");
+    runErr.innerHTML = "<strong>Request failed.</strong> " + (e.message || e);
+    runErr.style.display = "block";
+    btn.disabled = false;
+    btn.innerHTML = PLAY_SVG + " Run Campaign";
+    return;
+  }
+
+  // Trigger succeeded. Mark step 1 done and surface the live run reference.
+  steps[0].classList.remove("running");
+  steps[0].classList.add("done");
+
+  const ref = extractRunRef(triggerData);
+  const rawJson = JSON.stringify(triggerData, null, 2);
+  runRef.innerHTML =
+    '<div class="rr-title">' + CHECK_SVG + ' Live run triggered</div>' +
+    (ref ? '<div>Session reference: <code>' + ref.value + '</code></div>'
+         : '<div>The run was accepted. See the response below.</div>') +
+    '<details class="rr-raw"><summary>View raw response</summary><pre>' +
+      rawJson.replace(/</g, "&lt;") + '</pre></details>';
+  runRef.style.display = "block";
+
+  // Steps 2-5 represent the playbook executing asynchronously inside Writer.
+  const delays = [1100, 1400, 1100, 900];
+  let i = 1;
   function next() {
-    if (i > 0) {
+    if (i > 1) {
       steps[i - 1].classList.remove("running");
       steps[i - 1].classList.add("done");
     }
     if (i < steps.length) {
       steps[i].classList.add("running");
-      setTimeout(() => { i++; next(); }, delays[i] || 800);
+      setTimeout(() => { i++; next(); }, delays[i - 1] || 900);
     } else {
-      // All done
       const results = document.getElementById("results");
       results.classList.add("active");
-      setTimeout(() => {
-        results.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 200);
-      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Campaign Delivered';
+      setTimeout(() => results.scrollIntoView({ behavior: "smooth", block: "start" }), 200);
+      btn.innerHTML = CHECK_SVG + " Campaign Delivered";
     }
   }
   next();
@@ -2861,11 +3087,11 @@ function resetDemo() {
   const btn = document.getElementById("runBtn");
   card.classList.remove("active");
   results.classList.remove("active");
-  document.querySelectorAll(".progress-step").forEach(s => {
-    s.classList.remove("running", "done");
-  });
+  document.querySelectorAll(".progress-step").forEach(s => s.classList.remove("running", "done"));
+  document.getElementById("runRef").style.display = "none";
+  document.getElementById("runErr").style.display = "none";
   btn.disabled = false;
-  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Run Campaign';
+  btn.innerHTML = PLAY_SVG + " Run Campaign";
   scrollToDemo();
 }
 
