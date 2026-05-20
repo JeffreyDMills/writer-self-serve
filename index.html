@@ -711,6 +711,229 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
   margin: 10px 0 6px;
 }
 
+/* ACTIVATION SECTION */
+.activation {
+  background: var(--surface);
+  padding: 90px 0;
+}
+.activation-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+.activation-head .section-label {
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--blue); font-weight: 700; margin: 0 0 12px;
+}
+.activation-head h2 {
+  font-size: 36px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 14px;
+}
+.activation-head p {
+  font-size: 17px; color: var(--slate); line-height: 1.55; margin: 0;
+}
+.activation-grid {
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px;
+  align-items: stretch;
+}
+
+/* PRICING CARDS */
+.tiers { display: flex; flex-direction: column; gap: 16px; }
+.tier {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px 30px;
+  position: relative;
+}
+.tier.featured {
+  border: 2px solid var(--blue);
+  box-shadow: 0 12px 28px -12px rgba(32,78,207,0.25);
+}
+.tier-tag {
+  position: absolute; top: -10px; left: 28px;
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 700; color: var(--white);
+  background: var(--blue);
+  padding: 5px 11px; border-radius: 4px;
+}
+.tier.managed .tier-tag { background: var(--ink); }
+.tier-head { display:flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.tier-name {
+  font-size: 22px; font-weight: 800; letter-spacing: -0.01em; margin: 0;
+}
+.tier-meta { font-size: 12.5px; color: var(--mute); font-weight: 600; }
+.tier-price {
+  display: flex; align-items: baseline; gap: 6px;
+  margin: 4px 0 14px;
+}
+.tier-price .amt { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.tier-price .per { font-size: 14px; color: var(--mute); font-weight: 600; }
+.tier-price.custom .amt { font-size: 26px; }
+.tier-list { list-style: none; padding: 0; margin: 0 0 22px; }
+.tier-list li {
+  padding: 7px 0 7px 22px; position: relative;
+  font-size: 14px; color: var(--ink); line-height: 1.5;
+  border-bottom: 1px solid var(--line);
+}
+.tier-list li:last-child { border-bottom: none; }
+.tier-list li::before {
+  content: "\2713"; position: absolute; left: 0; top: 7px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--blue-soft); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 800;
+}
+.tier-cta {
+  width: 100%;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--blue); color: var(--white);
+  font-weight: 700; font-size: 14.5px;
+  padding: 13px 20px; border-radius: 8px;
+  border: none; cursor: pointer; font-family: inherit;
+  transition: background 0.15s;
+}
+.tier-cta:hover { background: var(--blue-bright); }
+.tier.managed .tier-cta {
+  background: var(--ink);
+}
+.tier.managed .tier-cta:hover { background: #2A2D45; }
+
+/* DELIVERY MOCKUP */
+.delivery-mockup {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 12px 28px -16px rgba(11,20,57,0.18);
+}
+.delivery-head {
+  background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+  color: var(--white);
+  padding: 22px 26px;
+  display: flex; align-items: center; gap: 14px;
+}
+.delivery-head .check {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--green); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.delivery-head .meta-eyebrow {
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--blue-bright); font-weight: 700; margin-bottom: 2px;
+}
+.delivery-head h3 {
+  margin: 0; font-size: 17px; font-weight: 800; color: var(--white);
+  letter-spacing: -0.005em;
+}
+.delivery-subhead {
+  padding: 14px 26px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+  font-size: 12.5px; color: var(--slate); font-weight: 600;
+}
+.delivery-subhead strong { color: var(--ink); }
+.delivery-files { padding: 8px 12px; flex: 1; }
+.file-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.file-card:hover { background: var(--surface); }
+.file-card + .file-card { border-top: 1px solid var(--line); border-radius: 0; }
+.file-icon {
+  width: 42px; height: 42px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 11px; font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+.file-icon.json { background: #6647C9; }
+.file-icon.pdf { background: #C7344C; }
+.file-icon.html { background: #D77E1A; }
+.file-icon.md { background: #1B7A5C; }
+.file-info { flex: 1; min-width: 0; }
+.file-name {
+  font-size: 14.5px; font-weight: 700; color: var(--ink);
+  margin-bottom: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.file-meta { font-size: 12px; color: var(--mute); }
+.file-download {
+  color: var(--blue); flex-shrink: 0;
+  opacity: 0.7;
+}
+.file-card:hover .file-download { opacity: 1; }
+.delivery-foot {
+  padding: 16px 26px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px; color: var(--mute);
+  background: var(--surface);
+  display: flex; align-items: center; gap: 8px;
+}
+.delivery-foot strong { color: var(--ink); font-weight: 700; }
+
+/* FORM MODAL EXTENSIONS */
+.modal.form-modal { max-width: 560px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; }
+.form-grid .full { grid-column: 1 / -1; }
+.field label {
+  display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--mute); font-weight: 700; margin-bottom: 6px;
+}
+.field input, .field select, .field textarea {
+  width: 100%; padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 14px; color: var(--ink);
+  font-family: inherit;
+  background: var(--white);
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--blue); border-color: var(--blue);
+}
+.field textarea { resize: vertical; min-height: 80px; }
+.summary-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--surface);
+  border-radius: 8px;
+  margin: 16px 0 18px;
+  border: 1px solid var(--line);
+}
+.summary-row .lbl { font-size: 12px; color: var(--mute); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.summary-row .val { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; }
+.submit-btn {
+  width: 100%;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--blue); color: var(--white);
+  font-weight: 700; font-size: 15px;
+  padding: 13px 20px; border-radius: 8px;
+  border: none; cursor: pointer; font-family: inherit;
+}
+.submit-btn:hover { background: var(--blue-bright); }
+.fine-print {
+  font-size: 11.5px; color: var(--mute); text-align: center;
+  margin-top: 10px; line-height: 1.5;
+}
+.success-state {
+  text-align: center; padding: 24px 8px 12px;
+}
+.success-state .ok {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--green-soft); color: var(--green);
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.success-state h4 {
+  font-size: 18px; font-weight: 800; color: var(--ink);
+  margin: 0 0 6px;
+  letter-spacing: -0.005em;
+}
+.success-state p {
+  font-size: 14px; color: var(--slate); line-height: 1.55; margin: 0 0 6px;
+}
+
 /* MOBILE */
 @media (max-width: 920px) {
   .container { padding: 0 24px; }
@@ -724,6 +947,8 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
   .copy-grid { grid-template-columns: 1fr; }
   .how-grid { grid-template-columns: 1fr; }
   .closing-inner { grid-template-columns: 1fr; gap: 30px; }
+  .activation-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1531,28 +1756,131 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
   </div>
 </section>
 
-<!-- CLOSING -->
-<section class="closing">
-  <div class="container closing-inner">
-    <div>
-      <div class="section-label">Built by Toptal</div>
-      <h2>This is one of Toptal's self-serve AI workflow products.</h2>
-      <p>We design, build, and operate them for marketing teams that need outcomes. Not just access to AI.</p>
-      <p>Run it once. Productize it. Or have us build the next one for you.</p>
-      <div class="cta-stack">
-        <a class="btn-light" href="mailto:partners@toptal.com?subject=Google%20Ads%20Campaign%20Builder">Talk to Toptal</a>
+<!-- ACTIVATION -->
+<section class="activation" id="activation">
+  <div class="container">
+    <div class="activation-head">
+      <div class="section-label">Pricing &amp; activation</div>
+      <h2>Two ways to run it. One deliverable.</h2>
+      <p>Run a campaign yourself for $499. Or have Toptal manage it for catalogs above 25 SKUs, recurring runs, or full activation across your marketing org.</p>
+    </div>
+
+    <div class="activation-grid">
+      <div class="tiers">
+        <div class="tier featured">
+          <span class="tier-tag">Self-serve</span>
+          <div class="tier-head">
+            <h3 class="tier-name">Campaign Builder</h3>
+            <span class="tier-meta">Up to 25 SKUs</span>
+          </div>
+          <div class="tier-price"><span class="amt">$499</span><span class="per">per campaign</span></div>
+          <ul class="tier-list">
+            <li>Validated product brief JSON</li>
+            <li>Tiered keyword list with match types and negatives</li>
+            <li>RSA copy per product, character-validated</li>
+            <li>Sitelinks, callouts, structured snippets</li>
+            <li>Two SERP mockup variants</li>
+            <li>~900-word strategy rationale</li>
+            <li>Assets delivered in under 10 minutes</li>
+          </ul>
+          <button class="tier-cta" onclick="openCheckout()">
+            Start a campaign
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div class="tier managed">
+          <span class="tier-tag">Managed by Toptal</span>
+          <div class="tier-head">
+            <h3 class="tier-name">Managed Campaigns</h3>
+            <span class="tier-meta">25+ SKUs · Recurring</span>
+          </div>
+          <div class="tier-price custom"><span class="amt">Custom</span><span class="per">scoped to catalog &amp; cadence</span></div>
+          <ul class="tier-list">
+            <li>Everything in self-serve</li>
+            <li>Full catalog ingestion at any scale</li>
+            <li>Recurring runs with optimization loop</li>
+            <li>Toptal expert review and HITL hardening</li>
+            <li>Direct Google Ads upload and launch</li>
+            <li>Quarterly campaign performance review</li>
+          </ul>
+          <button class="tier-cta" onclick="openLead()">
+            Talk to Toptal
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="delivery-mockup">
+        <div class="delivery-head">
+          <div class="check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div>
+            <div class="meta-eyebrow">Delivered to your inbox</div>
+            <h3>Your campaign is ready · Old Spice · Q3 Conquesting</h3>
+          </div>
+        </div>
+        <div class="delivery-subhead"><strong>4 assets</strong> · 334 KB · Generated in 8m 14s</div>
+        <div class="delivery-files">
+          <div class="file-card">
+            <div class="file-icon json">JSON</div>
+            <div class="file-info">
+              <div class="file-name">product_brief.json</div>
+              <div class="file-meta">9.6 KB · 10 products · Validated schema</div>
+            </div>
+            <div class="file-download">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+          </div>
+          <div class="file-card">
+            <div class="file-icon pdf">PDF</div>
+            <div class="file-info">
+              <div class="file-name">google_ads_asset_set.pdf</div>
+              <div class="file-meta">242 KB · Keywords, RSA copy, extensions</div>
+            </div>
+            <div class="file-download">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+          </div>
+          <div class="file-card">
+            <div class="file-icon html">HTML</div>
+            <div class="file-info">
+              <div class="file-name">serp_mockups.zip</div>
+              <div class="file-meta">18 KB · Variant A + Variant B</div>
+            </div>
+            <div class="file-download">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+          </div>
+          <div class="file-card">
+            <div class="file-icon md">MD</div>
+            <div class="file-info">
+              <div class="file-name">ad_strategy_rationale.md</div>
+              <div class="file-meta">64 KB · ~900 words · 6 sections</div>
+            </div>
+            <div class="file-download">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="delivery-foot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+          <span><strong>Sent to your inbox</strong> plus a shareable Google Drive folder. Ready for Google Ads upload.</span>
+        </div>
       </div>
     </div>
-    <div class="panel">
-      <h4>What ships with every campaign</h4>
-      <ul>
-        <li>Validated product brief JSON</li>
-        <li>Tiered keyword list with match types</li>
-        <li>RSA copy per product, character-validated</li>
-        <li>Sitelinks, callouts, structured snippets</li>
-        <li>Two SERP mockup variants</li>
-        <li>~900-word campaign strategy rationale</li>
-      </ul>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="container">
+    <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+      <div class="section-label">Built by Toptal</div>
+      <h2 style="margin-bottom: 18px;">One of Toptal's self-serve AI workflow products.</h2>
+      <p style="margin-bottom: 8px;">We design, build, and operate them for marketing teams that need outcomes. Not just access to AI.</p>
+      <p>Run this one. Productize it. Or have us build the next one for you.</p>
     </div>
   </div>
 </section>
@@ -1564,6 +1892,127 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       Show the playbook running behind the scenes
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </button>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutModal" onclick="if(event.target===this) closeCheckout()">
+  <div class="modal form-modal">
+    <div class="modal-head">
+      <div>
+        <div class="modal-eyebrow">Self-serve · Campaign Builder</div>
+        <h3>Start a campaign · $499</h3>
+      </div>
+      <button class="close" onclick="closeCheckout()" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="checkoutBody">
+      <div class="form-grid">
+        <div class="field full">
+          <label>Company</label>
+          <input type="text" id="co_company" placeholder="Old Spice" autocomplete="organization">
+        </div>
+        <div class="field full">
+          <label>Campaign name</label>
+          <input type="text" id="co_campaign" placeholder="Old Spice · Q3 Conquesting Unilever" autocomplete="off">
+        </div>
+        <div class="field">
+          <label>Number of SKUs</label>
+          <input type="number" id="co_skus" placeholder="10" min="1" max="25" value="10">
+        </div>
+        <div class="field">
+          <label>Target keyword</label>
+          <input type="text" id="co_kw" placeholder="Unilever" value="Unilever">
+        </div>
+        <div class="field full">
+          <label>Billing email</label>
+          <input type="email" id="co_email" placeholder="ads@oldspice.com" autocomplete="email">
+        </div>
+        <div class="field full">
+          <label>Card number</label>
+          <input type="text" id="co_card" placeholder="4242 4242 4242 4242" autocomplete="cc-number">
+        </div>
+        <div class="field">
+          <label>Expiry</label>
+          <input type="text" id="co_exp" placeholder="MM / YY" autocomplete="cc-exp">
+        </div>
+        <div class="field">
+          <label>CVC</label>
+          <input type="text" id="co_cvc" placeholder="123" autocomplete="cc-csc">
+        </div>
+      </div>
+      <div class="summary-row">
+        <div>
+          <div class="lbl">Total today</div>
+          <div style="font-size:12px;color:var(--mute);margin-top:2px;">1 campaign · up to 25 SKUs · 4 asset deliverables</div>
+        </div>
+        <div class="val">$499.00</div>
+      </div>
+      <button class="submit-btn" onclick="submitCheckout()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="6" width="18" height="13" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Charge $499 &amp; Start Campaign
+      </button>
+      <div class="fine-print">Demo only · No card will be charged · Replace with Stripe Checkout in production</div>
+    </div>
+  </div>
+</div>
+
+<!-- LEAD CAPTURE MODAL -->
+<div class="modal-overlay" id="leadModal" onclick="if(event.target===this) closeLead()">
+  <div class="modal form-modal">
+    <div class="modal-head">
+      <div>
+        <div class="modal-eyebrow">Managed by Toptal</div>
+        <h3>Let's talk about managed campaigns</h3>
+      </div>
+      <button class="close" onclick="closeLead()" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="leadBody">
+      <div class="form-grid">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" id="ld_name" autocomplete="name">
+        </div>
+        <div class="field">
+          <label>Role</label>
+          <input type="text" id="ld_role" placeholder="VP Marketing" autocomplete="organization-title">
+        </div>
+        <div class="field">
+          <label>Company</label>
+          <input type="text" id="ld_company" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label>Work email</label>
+          <input type="email" id="ld_email" autocomplete="email">
+        </div>
+        <div class="field">
+          <label>Catalog size</label>
+          <select id="ld_catalog">
+            <option>25 – 100 SKUs</option>
+            <option>100 – 500 SKUs</option>
+            <option>500 – 1,000 SKUs</option>
+            <option>1,000+ SKUs</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Cadence</label>
+          <select id="ld_cadence">
+            <option>One-off campaign</option>
+            <option>Monthly</option>
+            <option>Quarterly</option>
+            <option>Always-on</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label>What's the goal?</label>
+          <textarea id="ld_goal" placeholder="Competitor conquesting · Category expansion · Mid-market re-launch · etc."></textarea>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="submitLead()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Get a callback
+      </button>
+      <div class="fine-print">A Toptal partnerships lead will reach out within one business day.</div>
+    </div>
   </div>
 </div>
 
@@ -2338,18 +2787,53 @@ function resetDemo() {
   scrollToDemo();
 }
 
-// Playbook modal
-function openPlaybook() {
-  document.getElementById("playbookModal").classList.add("open");
+// Modal helpers
+function openModal(id) {
+  document.getElementById(id).classList.add("open");
   document.body.style.overflow = "hidden";
 }
-function closePlaybook() {
-  document.getElementById("playbookModal").classList.remove("open");
+function closeModal(id) {
+  document.getElementById(id).classList.remove("open");
   document.body.style.overflow = "";
 }
+function openPlaybook() { openModal("playbookModal"); }
+function closePlaybook() { closeModal("playbookModal"); }
+function openCheckout() { openModal("checkoutModal"); }
+function closeCheckout() { closeModal("checkoutModal"); }
+function openLead() { openModal("leadModal"); }
+function closeLead() { closeModal("leadModal"); }
+
 document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") closePlaybook();
+  if (e.key === "Escape") {
+    closePlaybook(); closeCheckout(); closeLead();
+  }
 });
+
+// Simulated submit states
+function successHTML(title, body) {
+  return '<div class="success-state">' +
+    '<div class="ok"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>' +
+    '<h4>' + title + '</h4>' +
+    '<p>' + body + '</p>' +
+    '</div>';
+}
+
+function submitCheckout() {
+  const co = document.getElementById("co_company").value || "your team";
+  const sk = document.getElementById("co_skus").value || "your";
+  document.getElementById("checkoutBody").innerHTML = successHTML(
+    "Campaign queued",
+    "We're scraping " + sk + " product URLs and generating the asset set now. " + co + " will get the deliverables in their inbox in under 10 minutes."
+  );
+}
+
+function submitLead() {
+  const co = document.getElementById("ld_company").value || "your team";
+  document.getElementById("leadBody").innerHTML = successHTML(
+    "Got it. We'll reach out.",
+    "A Toptal partnerships lead will contact " + co + " within one business day to scope the managed campaign engagement."
+  );
+}
 </script>
 
 </body>
