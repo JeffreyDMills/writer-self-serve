@@ -604,6 +604,113 @@ footer.site .container {
 footer.site img { height: 20px; opacity: 0.7; }
 footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
 
+/* PLAYBOOK REVEAL BAR */
+.playbook-bar {
+  background: var(--navy-deep);
+  padding: 28px 0 32px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.playbook-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.78);
+  font-family: inherit;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.playbook-link:hover {
+  color: var(--white);
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.04);
+}
+.playbook-link svg { opacity: 0.7; }
+
+/* MODAL */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(6, 11, 42, 0.82);
+  backdrop-filter: blur(4px);
+  display: none;
+  z-index: 100;
+  padding: 60px 24px;
+  overflow-y: auto;
+  align-items: flex-start; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--white);
+  border-radius: 12px;
+  max-width: 920px;
+  width: 100%;
+  box-shadow: 0 40px 90px -20px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+.modal-head {
+  padding: 22px 30px;
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  background: var(--surface);
+}
+.modal-eyebrow {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--blue); font-weight: 700; margin-bottom: 4px;
+}
+.modal-head h3 {
+  margin: 0;
+  font-size: 19px; font-weight: 800; color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.modal-head .close {
+  background: transparent; border: none; cursor: pointer;
+  font-size: 28px; color: var(--mute); line-height: 1;
+  font-family: inherit; padding: 0; width: 32px; height: 32px;
+  border-radius: 4px;
+}
+.modal-head .close:hover { background: var(--line); color: var(--ink); }
+.modal-body { padding: 26px 30px 36px; max-height: 70vh; overflow-y: auto; }
+.modal-body .modal-intro {
+  font-size: 15px; color: var(--slate); line-height: 1.6;
+  margin: 0 0 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.modal-body h4 {
+  font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--blue); font-weight: 700;
+  margin: 22px 0 10px;
+}
+.modal-body h4:first-of-type { margin-top: 0; }
+.modal-body p {
+  font-size: 14px; color: var(--ink); line-height: 1.65; margin: 0 0 10px;
+}
+.modal-body ul {
+  margin: 0 0 14px 22px;
+  padding: 0;
+}
+.modal-body ul ul { margin: 4px 0 4px 18px; }
+.modal-body li {
+  font-size: 14px; color: var(--ink); line-height: 1.6; margin-bottom: 6px;
+}
+.modal-body code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  background: var(--surface); padding: 1px 6px; border-radius: 4px;
+  border: 1px solid var(--line); font-size: 12.5px; color: var(--ink);
+}
+.modal-body pre {
+  background: var(--code-bg); color: var(--code-ink);
+  padding: 14px 16px; border-radius: 6px;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12px; line-height: 1.55;
+  overflow-x: auto;
+  margin: 10px 0 6px;
+}
+
 /* MOBILE */
 @media (max-width: 920px) {
   .container { padding: 0 24px; }
@@ -1450,6 +1557,101 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
   </div>
 </section>
 
+<!-- PLAYBOOK REVEAL -->
+<div class="playbook-bar">
+  <div class="container">
+    <button class="playbook-link" onclick="openPlaybook()">
+      Show the playbook running behind the scenes
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </div>
+</div>
+
+<!-- PLAYBOOK MODAL -->
+<div class="modal-overlay" id="playbookModal" onclick="if(event.target===this) closePlaybook()">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <div class="modal-eyebrow">The playbook</div>
+        <h3>Google Ads Campaign Builder · End-to-end plan</h3>
+      </div>
+      <button class="close" onclick="closePlaybook()" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-intro">Every campaign run executes this five-phase plan. Inputs in, validated assets out. No hand-waving, no manual cleanup.</p>
+
+      <h4>Phase 1 · Ingest &amp; parse product data</h4>
+      <ul>
+        <li>Read every row of the uploaded Excel and extract the full URL list.</li>
+        <li>Infer campaign intent from the target keyword: audience segment, seasonal promotion, competitor conquesting, or category push.</li>
+        <li>Scrape each product URL and extract <code>product_name</code>, <code>short_description</code>, <code>key_features</code>, <code>price</code>, <code>value_proposition</code>, <code>usps</code>, <code>cta_text</code>, <code>inferred_audience</code>.</li>
+        <li>Compile every product into a single validated JSON array. Save to <code>/workspace/product_brief.json</code>. Null any field that cannot be extracted.</li>
+        <li>Identify the advertiser brand name and primary domain for use throughout copy and SERP mockups.</li>
+      </ul>
+
+      <h4>Phase 2 · Competitive &amp; keyword intelligence</h4>
+      <ul>
+        <li>Load <code>product_brief.json</code> as the authoritative source for every downstream decision.</li>
+        <li>Research the SERP landscape for the target keyword. Identify top 3–5 competing advertisers, their dominant copy angles, and exploitable messaging gaps.</li>
+        <li>Confirm the campaign type and define bidding and targeting strategy (manual CPC with ROAS target for conquesting; maximise conversions for seasonal; etc.).</li>
+        <li>Generate the tiered keyword list:
+          <ul>
+            <li><strong>Core (5–10):</strong> exact match, highest purchase intent.</li>
+            <li><strong>Expansion (10–20):</strong> phrase match, thematic + long-tail from product features.</li>
+            <li><strong>Negative (15–25):</strong> irrelevant queries, non-converting modifiers, wrong demographic, competitor brands unless conquesting.</li>
+          </ul>
+        </li>
+        <li>Assign match type and priority tier to every keyword.</li>
+      </ul>
+
+      <h4>Phase 3 · RSA ad copy creation</h4>
+      <ul>
+        <li>Source every claim from <code>product_brief.json</code>. No invented details.</li>
+        <li>For each product, build a full RSA asset set:
+          <ul>
+            <li><strong>Headlines:</strong> 10–15 unique, each ≤ 30 characters. Cover product name, primary benefit, CTA, price/offer, urgency, brand, keyword inclusion, differentiation. Flag anything within 2 characters of the limit.</li>
+            <li><strong>Descriptions:</strong> 4 unique, each ≤ 90 characters. One feature-led, one benefit-led, one social-proof-led, one offer/urgency-led.</li>
+            <li><strong>Display URL paths:</strong> two segments, each ≤ 15 characters, reinforcing the keyword and product category.</li>
+          </ul>
+        </li>
+        <li>Build shared extensions: 4 sitelinks, 4–6 callouts, one structured snippet header with 4–6 values drawn from real product attributes.</li>
+        <li>Validate every character count before emit.</li>
+      </ul>
+
+      <h4>Phase 4 · SERP mockup generation</h4>
+      <ul>
+        <li>Select the product with strongest value-prop alignment to the keyword as the basis for both mockups.</li>
+        <li>Pick the two strongest RSA variants:
+          <ul>
+            <li><strong>Variant A:</strong> Feature / benefit-led headline.</li>
+            <li><strong>Variant B:</strong> Commercial hook-led headline (price, offer, urgency, or competitive advantage).</li>
+          </ul>
+        </li>
+        <li>Build the SERP mockup input JSON matching the schema: <code>company_name</code>, <code>company_domain</code>, <code>search_query</code>, <code>campaign_name</code>, <code>ad_group</code>, <code>result_count</code>, <code>variant_a</code>, <code>variant_b</code>, <code>sitelinks</code>, <code>callouts</code>, <code>competitor</code>, <code>people_also_ask</code>, <code>organic_results</code>.</li>
+        <li>Run the generator: <pre>python /skills/google-serp-mockup/scripts/generate_serp_mockup.py \\
+  --input /workspace/mockups/ad_data.json \\
+  --output-dir /workspace/mockups</pre></li>
+        <li>Verify both HTML outputs. No placeholder tokens. All sections render. Re-run on any character-limit failure.</li>
+      </ul>
+
+      <h4>Phase 5 · Ad strategy rationale</h4>
+      <ul>
+        <li>Write a 700–1,000 word strategy doc grounded in <code>product_brief.json</code>. Reference specific product names, features, and value propositions when justifying decisions.</li>
+        <li>Six sections: Campaign Intent Diagnosis, Keyword Strategy Rationale, Ad Copy Angle Rationale, Extension Strategy, Competitive Positioning, Expected Performance Considerations.</li>
+        <li>Save to <code>/workspace/ad_strategy_rationale.md</code>.</li>
+      </ul>
+
+      <h4>Deliverables</h4>
+      <ul>
+        <li>Full Google Ads asset set: RSAs per product, keyword list with match types, negatives, sitelinks, callouts, structured snippets.</li>
+        <li><code>product_brief.json</code> as standalone reusable data.</li>
+        <li><code>serp_mockup_variant_a.html</code> and <code>serp_mockup_variant_b.html</code> as browser-viewable attachments.</li>
+        <li><code>ad_strategy_rationale.md</code> as standalone strategy doc.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer class="site">
   <div class="container">
@@ -2135,6 +2337,19 @@ function resetDemo() {
   btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Run Campaign';
   scrollToDemo();
 }
+
+// Playbook modal
+function openPlaybook() {
+  document.getElementById("playbookModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closePlaybook() {
+  document.getElementById("playbookModal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") closePlaybook();
+});
 </script>
 
 </body>
