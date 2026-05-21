@@ -16,7 +16,7 @@ export const config = {
 };
 
 const WRITER_URL =
-  'https://app.writer.com/webhook/triggers/playbook/62fe0652-b37e-47af-9508-4444bf17984c';
+  'https://app.writer.com/webhook/triggers/playbook/a73fdf7f-b4a5-4434-a565-431fcd4ad3cb';
 
 export default async function handler(req, res) {
   // CORS — allow the deployed frontend (same origin) and any tab during demos.
@@ -63,7 +63,7 @@ export default async function handler(req, res) {
       { id: 'Target_Keyword', value: [keyword] },
     ];
     if (email) {
-      inputs.push({ id: 'Recipient_Email', value: [String(email)] });
+      inputs.push({ id: 'recipientemail', value: [String(email)] });
     }
     const data = { inputs };
 
