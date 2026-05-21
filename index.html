@@ -711,6 +711,9 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
   margin: 10px 0 6px;
 }
 
+.email-block { margin-top: 20px; }
+.email-block .keyword-input { font-size: 15px; font-weight: 400; }
+
 /* UPLOAD ZONE */
 .upload-zone {
   border: 2px dashed var(--line-strong);
@@ -1638,8 +1641,13 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
           <div class="intent-note">The keyword sets campaign intent. A competitor name triggers a <strong>conquesting</strong> campaign. A category term triggers a category push.</div>
         </div>
       </div>
+      <div class="input-block email-block">
+        <label>3 · Where should we send the finished assets?</label>
+        <input class="keyword-input" id="emailInput" type="email" placeholder="you@company.com">
+        <div class="intent-note">The build runs in the background and takes 5-10 minutes. The finished campaign is delivered to this inbox the moment it completes.</div>
+      </div>
       <div class="run-row">
-        <div class="ctx">Run Campaign uploads your sheet and kicks off the build. It scrapes every URL, maps the SERP landscape, writes the ad copy, builds two SERP mockups, and drafts the strategy rationale.</div>
+        <div class="ctx">Run Campaign uploads your sheet and kicks off the build in the background. It scrapes every URL, maps the SERP landscape, writes the ad copy, builds two SERP mockups, and drafts the strategy rationale, then emails you the full set.</div>
         <button class="btn-primary" id="runBtn" onclick="runCampaign()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
           Run Campaign
@@ -1665,10 +1673,11 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
   <div class="container">
     <div class="results-head">
       <div>
-        <h2>Campaign delivered.</h2>
-        <div class="sub">Old Spice · Conquesting Unilever · 10 products · Ready for Google Ads upload</div>
+        <h2>Example deliverables</h2>
+        <div class="sub">A preview of what lands in your inbox · shown here from the Old Spice · Unilever run</div>
       </div>
       <div class="actions">
+        <span class="live-badge"><span class="badge-dot"></span>Your run is building in the background</span>
         <button class="btn-secondary" onclick="resetDemo()">Run again</button>
       </div>
     </div>
@@ -2971,10 +2980,10 @@ const SPINNER_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
 const PLAY_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
 const CHECK_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
-// Pull a likely session/run identifier out of whatever Writer returns.
+// Pull a likely session/run identifier out of whatever the engine returns.
 function extractRunRef(data) {
   if (!data || typeof data !== "object") return null;
-  const keys = ["session_id", "sessionId", "run_id", "runId", "id", "execution_id", "executionId", "trigger_id", "triggerId"];
+  const keys = ["thread_id", "threadId", "session_id", "sessionId", "run_id", "runId", "id", "execution_id", "executionId", "trigger_id", "triggerId"];
   for (const k of keys) {
     if (data[k]) return { label: k, value: String(data[k]) };
   }
@@ -2989,8 +2998,11 @@ function extractRunRef(data) {
   return null;
 }
 
+function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
 async function runCampaign() {
   const keyword = document.getElementById("keywordInput").value.trim();
+  const email = document.getElementById("emailInput").value.trim();
   if (!selectedFile) {
     alert("Choose a product Excel file first. Use the Download the Old Spice sample link if you need one.");
     return;
@@ -2999,16 +3011,22 @@ async function runCampaign() {
     alert("Enter a target keyword.");
     return;
   }
+  if (!isValidEmail(email)) {
+    alert("Enter the email address where the finished assets should be sent.");
+    return;
+  }
 
   const btn = document.getElementById("runBtn");
   const card = document.getElementById("progressCard");
   const steps = document.querySelectorAll(".progress-step");
   const runRef = document.getElementById("runRef");
   const runErr = document.getElementById("runErr");
+  const progressTitle = document.getElementById("progressTitle");
 
   btn.disabled = true;
-  btn.innerHTML = SPINNER_SVG + " Running…";
+  btn.innerHTML = SPINNER_SVG + " Triggering…";
   card.classList.add("active");
+  progressTitle.textContent = "Campaign Build · Triggering";
   runRef.style.display = "none";
   runErr.style.display = "none";
   steps.forEach(s => s.classList.remove("running", "done"));
@@ -3046,39 +3064,32 @@ async function runCampaign() {
     return;
   }
 
-  // Trigger succeeded. Mark step 1 done and surface the live run reference.
+  // Trigger succeeded. Step 1 done; the rest runs in the background on the engine.
   steps[0].classList.remove("running");
   steps[0].classList.add("done");
+  // Remaining phases are genuinely executing in the background (5-10 min), so show them running.
+  for (let j = 1; j < steps.length; j++) steps[j].classList.add("running");
+  progressTitle.textContent = "Campaign Build · Running in the background";
 
   const ref = extractRunRef(triggerData);
+  const status = triggerData && triggerData.status ? String(triggerData.status) : null;
   const rawJson = JSON.stringify(triggerData, null, 2);
   runRef.innerHTML =
     '<div class="rr-title">' + CHECK_SVG + ' Live run triggered</div>' +
-    (ref ? '<div>Session reference: <code>' + ref.value + '</code></div>'
+    (ref ? '<div>Run ID: <code>' + ref.value + '</code>' +
+           (status ? ' · status <code>' + status + '</code>' : '') + '</div>'
          : '<div>The run was accepted. See the response below.</div>') +
+    '<div style="margin-top:8px;">The build is running now. The finished campaign will be emailed to <code>' +
+      email.replace(/</g, "&lt;") + '</code> in about 5-10 minutes.</div>' +
     '<details class="rr-raw"><summary>View raw response</summary><pre>' +
       rawJson.replace(/</g, "&lt;") + '</pre></details>';
   runRef.style.display = "block";
 
-  // Steps 2-5 represent the playbook executing asynchronously inside Writer.
-  const delays = [1100, 1400, 1100, 900];
-  let i = 1;
-  function next() {
-    if (i > 1) {
-      steps[i - 1].classList.remove("running");
-      steps[i - 1].classList.add("done");
-    }
-    if (i < steps.length) {
-      steps[i].classList.add("running");
-      setTimeout(() => { i++; next(); }, delays[i - 1] || 900);
-    } else {
-      const results = document.getElementById("results");
-      results.classList.add("active");
-      setTimeout(() => results.scrollIntoView({ behavior: "smooth", block: "start" }), 200);
-      btn.innerHTML = CHECK_SVG + " Campaign Delivered";
-    }
-  }
-  next();
+  // Reveal the example deliverables as a preview of what gets emailed.
+  const results = document.getElementById("results");
+  results.classList.add("active");
+  setTimeout(() => results.scrollIntoView({ behavior: "smooth", block: "start" }), 250);
+  btn.innerHTML = CHECK_SVG + " Campaign Triggered";
 }
 
 function resetDemo() {
@@ -3090,6 +3101,8 @@ function resetDemo() {
   document.querySelectorAll(".progress-step").forEach(s => s.classList.remove("running", "done"));
   document.getElementById("runRef").style.display = "none";
   document.getElementById("runErr").style.display = "none";
+  const pt = document.getElementById("progressTitle");
+  if (pt) pt.textContent = "Campaign Build · In Progress";
   btn.disabled = false;
   btn.innerHTML = PLAY_SVG + " Run Campaign";
   scrollToDemo();
