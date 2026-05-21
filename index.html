@@ -3040,7 +3040,7 @@ async function runCampaign() {
     const resp = await fetch("/api/run-campaign", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ keyword: keyword, filename: selectedFile.name, fileBase64: fileBase64 })
+      body: JSON.stringify({ keyword: keyword, filename: selectedFile.name, fileBase64: fileBase64, email: email })
     });
     const txt = await resp.text();
     try { triggerData = JSON.parse(txt); } catch (e) { triggerData = { raw: txt }; }

@@ -36,7 +36,7 @@ export default async function handler(req, res) {
   }
 
   const body = req.body || {};
-  let { keyword, filename, fileBase64 } = body;
+  let { keyword, filename, fileBase64, email } = body;
 
   if (!keyword || !filename || !fileBase64) {
     return res
@@ -54,12 +54,18 @@ export default async function handler(req, res) {
     const buffer = Buffer.from(fileBase64, 'base64');
 
     // Match the playbook's expected input contract exactly.
-    const data = {
-      inputs: [
-        { id: 'Product_Excel_File', value: ['file:' + filename] },
-        { id: 'Target_Keyword', value: [keyword] },
-      ],
-    };
+    // Recipient_Email is passed through so the playbook can email the finished
+    // deliverables to the lead. Requires a matching "Recipient_Email" input
+    // (and a send step) to exist in the playbook; harmless if the playbook
+    // ignores unknown inputs.
+    const inputs = [
+      { id: 'Product_Excel_File', value: ['file:' + filename] },
+      { id: 'Target_Keyword', value: [keyword] },
+    ];
+    if (email) {
+      inputs.push({ id: 'Recipient_Email', value: [String(email)] });
+    }
+    const data = { inputs };
 
     const form = new FormData();
     form.append('data', JSON.stringify(data));
