@@ -257,9 +257,9 @@ body {
   animation: pulse 1s infinite;
 }
 .progress-step.done .progress-icon {
-  background: var(--green); color: var(--white);
+  background: var(--green); color: transparent; font-size: 0;
 }
-.progress-step.done .progress-icon::before { content: "\\2713"; }
+.progress-step.done .progress-icon::before { content: "\2713"; font-size: 12px; color: var(--white); }
 .progress-text { flex: 1; color: var(--slate); }
 .progress-step.done .progress-text { color: var(--ink); font-weight: 600; }
 .progress-step.running .progress-text { color: var(--ink); font-weight: 600; }
@@ -947,7 +947,7 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
 }
 .delivery-head .check {
   width: 36px; height: 36px; border-radius: 50%;
-  background: var(--green); color: var(--white);
+  background: var(--green); color: transparent; font-size: 0;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
