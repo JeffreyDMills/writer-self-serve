@@ -1126,7 +1126,7 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
 .flow-step p { margin:0; font-size:14.5px; color:var(--slate); line-height:1.55; }
 
 /* HERO CTAs */
-.hero-cta-row { display: flex; gap: 14px; align-items: center; margin: 32px 0 4px; flex-wrap: wrap; }
+.hero-cta-row { display: flex; gap: 14px; align-items: center; margin: 32px 0 28px; flex-wrap: wrap; }
 .hero-btn { display:inline-flex; align-items:center; gap:8px; background: var(--blue); color:#fff; font-weight:700; font-size:15.5px; padding:15px 26px; border-radius:8px; border:none; cursor:pointer; font-family:inherit; text-decoration:none; }
 .hero-btn:hover { background: var(--blue-bright); }
 .hero-btn.ghost { background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.28); color:#fff; }
@@ -1233,6 +1233,10 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
 .problem-card .pc-ico { width: 40px; height: 40px; border-radius: 9px; background: #FCEEF0; color: var(--red); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
 .problem-card h3 { font-size: 18px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.005em; }
 .problem-card p { font-size: 14.5px; color: var(--slate); line-height: 1.55; margin: 0; }
+.pc-stat { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.pc-num { font-size: 28px; font-weight: 800; letter-spacing: -0.015em; color: var(--blue); line-height: 1; }
+.pc-stat-label { font-size: 12.5px; color: var(--slate); line-height: 1.45; margin-top: 7px; }
+.pc-source { font-size: 11px; color: var(--mute); font-weight: 600; margin-top: 8px; letter-spacing: 0.02em; }
 .problem-kicker { margin-top: 32px; text-align: center; font-size: 18px; font-weight: 700; color: var(--ink); max-width: 760px; margin-left: auto; margin-right: auto; line-height: 1.4; }
 .problem-kicker .hl { color: var(--blue); }
 
@@ -1843,16 +1847,6 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
   </div>
 </section>
 
-<!-- POSITIONING -->
-<section class="positioning-band">
-  <div class="container">
-    <div class="pb-inner">
-      <h2>Managed SEM production for catalog-heavy businesses. <span class="hl">Not an agency. Not a PPC tool.</span></h2>
-      <p>Agencies are expensive and slow. AI tools hand back drafts. Toptal gives you a repeatable SEM production motion: launch-ready campaigns, expert review, managed refreshes, and performance optimization, built where search demand and product economics justify the investment.</p>
-    </div>
-  </div>
-</section>
-
 <!-- PROBLEM -->
 <section class="section">
   <div class="container">
@@ -1866,16 +1860,19 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <h3>Untapped product demand</h3>
         <p>High-potential products and categories never get dedicated campaign coverage, so the search demand sitting in your catalog goes to competitors.</p>
+        <div class="pc-stat"><div class="pc-num">~95%</div><div class="pc-stat-label">of search keywords get 10 or fewer searches a month, the long-tail product demand broad campaigns miss.</div><div class="pc-source">Ahrefs keyword study</div></div>
       </div>
       <div class="problem-card">
         <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h3>Slow campaign production</h3>
         <p>Campaign ideas sit in backlog while the team handles keywords, copy, QA, and upload prep. Opportunities pass before they ship.</p>
+        <div class="pc-stat"><div class="pc-num">85%</div><div class="pc-stat-label">of marketing teams spend more than half their time fixing issues instead of building new campaigns.</div><div class="pc-source">DemandScience, 2026 State of Performance Marketing</div></div>
       </div>
       <div class="problem-card">
         <div class="pc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <h3>Agency economics do not scale</h3>
         <p>Retainers and manual production cycles make catalog-scale SEM coverage too expensive to justify across the long tail.</p>
+        <div class="pc-stat"><div class="pc-num">10&ndash;20%</div><div class="pc-stat-label">of ad spend is the typical agency management fee, charged on top of media, so cost climbs with every new campaign.</div><div class="pc-source">Industry PPC management pricing, 2025</div></div>
       </div>
     </div>
     <div class="problem-kicker"><span class="hl">Toptal gives you a repeatable SEM production motion, on demand.</span></div>
@@ -2236,74 +2233,6 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         <h3>Launch with confidence</h3>
         <p>Every campaign includes structure, rationale, and expert review before it ever reaches Google Ads.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section class="section">
-  <div class="container">
-    <div class="section-head center">
-      <div class="eyebrow">Why build it here</div>
-      <h2>Agency output. In-house control. Tool-level price.</h2>
-      <p>The builder sits exactly where mid-market teams need it: production quality without the cost, time, or hand-off of the alternatives.</p>
-    </div>
-    <div class="compare-wrap">
-      <table class="compare">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="featured">Toptal Campaign Builder</th>
-            <th>DIY in-house</th>
-            <th>Agency</th>
-            <th>Raw AI tool</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Cost per campaign</th>
-            <td class="featured">$499 flat</td>
-            <td>Your team's time</td>
-            <td>$5K-$25K</td>
-            <td>~$99/mo seat</td>
-          </tr>
-          <tr>
-            <th>Time to launch-ready</th>
-            <td class="featured">Minutes</td>
-            <td>Days to weeks</td>
-            <td>Weeks</td>
-            <td>Minutes (draft)</td>
-          </tr>
-          <tr>
-            <th>Coverage across full catalog</th>
-            <td class="featured"><span class="cmp-yes">Every SKU</span></td>
-            <td>A few SKUs</td>
-            <td>Varies by scope</td>
-            <td>Manual, one at a time</td>
-          </tr>
-          <tr>
-            <th>Strategy rationale included</th>
-            <td class="featured"><span class="cmp-yes">Yes</span></td>
-            <td><span class="cmp-no">No</span></td>
-            <td>Billed extra</td>
-            <td><span class="cmp-no">No</span></td>
-          </tr>
-          <tr>
-            <th>Expert review</th>
-            <td class="featured"><span class="cmp-yes">Toptal-certified</span></td>
-            <td>n/a</td>
-            <td><span class="cmp-yes">Yes</span></td>
-            <td><span class="cmp-no">None</span></td>
-          </tr>
-          <tr>
-            <th>Ready to upload to Google Ads</th>
-            <td class="featured"><span class="cmp-yes">Yes</span></td>
-            <td>After your work</td>
-            <td><span class="cmp-yes">Yes</span></td>
-            <td><span class="cmp-no">Draft only</span></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </section>
