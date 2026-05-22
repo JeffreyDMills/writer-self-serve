@@ -1115,6 +1115,27 @@ footer.site .copy { font-size: 12px; letter-spacing: 0.04em; }
   font-size: 14px; color: var(--slate); line-height: 1.55; margin: 0 0 6px;
 }
 
+/* PRICING ROW (tiers side by side) */
+.tier-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 22px; align-items: stretch; }
+
+/* DELIVERY BAND (full width, files in a row) */
+.delivery-band { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 12px 28px -16px rgba(11,20,57,0.18); margin-bottom: 22px; }
+.delivery-files-row { display: grid; grid-template-columns: repeat(4, 1fr); }
+.dfile { padding: 22px 22px 24px; border-left: 1px solid var(--line); position: relative; }
+.dfile:first-child { border-left: none; }
+.dfile .file-icon { margin-bottom: 14px; }
+.dfile .file-name { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dfile .file-meta { font-size: 12px; color: var(--mute); line-height: 1.45; }
+.dfile .dl { position: absolute; top: 22px; right: 18px; color: var(--blue); opacity: 0.6; }
+
+/* WHY STRIP (compact 4-col value) */
+.why-strip-head { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); font-weight: 700; margin: 0 0 14px; }
+.why-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.ws-item { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 22px 20px 24px; }
+.ws-ico { width: 36px; height: 36px; border-radius: 9px; background: var(--blue-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.ws-title { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.005em; line-height: 1.3; }
+.ws-body { font-size: 12.5px; color: var(--slate); line-height: 1.5; }
+
 /* STATS BAND */
 .stats-band { background: var(--white); border-bottom: 1px solid var(--line); padding: 36px 0; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
@@ -1177,6 +1198,11 @@ table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { bor
   .stat-cell:nth-child(even) { border-left: 1px solid var(--line); padding-left: 24px; }
   .problem-grid { grid-template-columns: 1fr; }
   .usecase-grid { grid-template-columns: 1fr; }
+  .tier-row { grid-template-columns: 1fr; }
+  .delivery-files-row { grid-template-columns: 1fr 1fr; }
+  .dfile:nth-child(3), .dfile:nth-child(4) { border-top: 1px solid var(--line); }
+  .dfile:nth-child(odd) { border-left: none; }
+  .why-strip { grid-template-columns: 1fr 1fr; }
   .container { padding: 0 24px; }
   .hero { padding: 60px 0 80px; }
   .hero h1 { font-size: 38px; }
@@ -2201,7 +2227,7 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       <p>Run a campaign yourself for $499. Or have Toptal manage it for catalogs above 25 SKUs, recurring runs, or full activation across your marketing org.</p>
     </div>
 
-    <div class="activation-grid">
+    <div class="tier-row">
         <div class="tier featured">
           <span class="tier-tag">Self-serve</span>
           <div class="tier-head">
@@ -2244,87 +2270,73 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
         </div>
+    </div>
 
-      <div class="delivery-mockup">
-        <div class="delivery-head">
-          <div class="check">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          </div>
-          <div>
-            <div class="meta-eyebrow">Delivered to your inbox</div>
-            <h3>Your campaign is ready · Old Spice · Q3 Conquesting</h3>
-          </div>
+    <div class="delivery-band">
+      <div class="delivery-head">
+        <div class="check">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
         </div>
-        <div class="delivery-files">
-          <div class="file-card">
-            <div class="file-icon json">JSON</div>
-            <div class="file-info">
-              <div class="file-name">product_brief.json</div>
-              <div class="file-meta">9.6 KB · 10 products · Validated schema</div>
-            </div>
-            <div class="file-download">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="file-card">
-            <div class="file-icon pdf">PDF</div>
-            <div class="file-info">
-              <div class="file-name">google_ads_asset_set.pdf</div>
-              <div class="file-meta">242 KB · Keywords, RSA copy, extensions</div>
-            </div>
-            <div class="file-download">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="file-card">
-            <div class="file-icon html">HTML</div>
-            <div class="file-info">
-              <div class="file-name">serp_mockups.zip</div>
-              <div class="file-meta">18 KB · Variant A + Variant B</div>
-            </div>
-            <div class="file-download">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="file-card">
-            <div class="file-icon md">MD</div>
-            <div class="file-info">
-              <div class="file-name">ad_strategy_rationale.md</div>
-              <div class="file-meta">64 KB · ~900 words · 6 sections</div>
-            </div>
-            <div class="file-download">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-        </div>
-        <div class="delivery-foot">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
-          <span><strong>Sent to your inbox</strong> plus a shareable Google Drive folder. Ready for Google Ads upload.</span>
+        <div>
+          <div class="meta-eyebrow">What lands in your inbox</div>
+          <h3>Five launch-ready deliverables, every run</h3>
         </div>
       </div>
+      <div class="delivery-files-row">
+        <div class="dfile">
+          <div class="file-icon json">JSON</div>
+          <div class="dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          <div class="file-name">Product brief</div>
+          <div class="file-meta">Validated JSON · every SKU parsed</div>
+        </div>
+        <div class="dfile">
+          <div class="file-icon pdf">PDF</div>
+          <div class="dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          <div class="file-name">Google Ads asset set</div>
+          <div class="file-meta">Keywords, RSA copy, extensions</div>
+        </div>
+        <div class="dfile">
+          <div class="file-icon html">HTML</div>
+          <div class="dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          <div class="file-name">Two SERP mockups</div>
+          <div class="file-meta">Feature-led + conquesting-led</div>
+        </div>
+        <div class="dfile">
+          <div class="file-icon md">MD</div>
+          <div class="dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          <div class="file-name">Strategy rationale</div>
+          <div class="file-meta">~900 words · 6 sections</div>
+        </div>
+      </div>
+      <div class="delivery-foot">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+        <span><strong>Sent to your inbox</strong> plus a shareable Google Drive folder. Ready for Google Ads upload.</span>
+      </div>
+    </div>
 
-      <div class="why-card">
-        <div class="eyebrow">Why Toptal</div>
-        <h3>What you don't get from a tool alone.</h3>
-        <div class="sub">Anyone can ship AI output. Toptal ships campaigns marketers can launch.</div>
-        <ul class="why-list">
-          <li>
-            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-            <div><div class="why-title">Toptal expert review on every run.</div><div class="why-body">Certified Google Ads specialists review the asset set before delivery. Human-in-the-loop quality, not AI slop.</div></div>
-          </li>
-          <li>
-            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-            <div><div class="why-title">Production-grade, not draft.</div><div class="why-body">Character-validated copy, schema-validated JSON, ready for the launch meeting. No cleanup required.</div></div>
-          </li>
-          <li>
-            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
-            <div><div class="why-title">Direct path to launch.</div><div class="why-body">Managed tier hands the campaign straight to a Toptal expert who pushes it live in Google Ads.</div></div>
-          </li>
-          <li>
-            <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></div>
-            <div><div class="why-title">Built to scale past self-serve.</div><div class="why-body">Same engine runs across catalogs of any size, with recurring optimization loops on the managed tier.</div></div>
-          </li>
-        </ul>
+    <div class="why-strip-wrap">
+      <div class="why-strip-head">Why Toptal, not just a tool</div>
+      <div class="why-strip">
+        <div class="ws-item">
+          <div class="ws-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <div class="ws-title">Expert review on every run</div>
+          <div class="ws-body">Certified Google Ads specialists check the assets before delivery. Not raw AI output.</div>
+        </div>
+        <div class="ws-item">
+          <div class="ws-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="ws-title">Production-grade, not draft</div>
+          <div class="ws-body">Character-validated copy and schema-validated JSON, ready to upload. No cleanup.</div>
+        </div>
+        <div class="ws-item">
+          <div class="ws-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
+          <div class="ws-title">Direct path to launch</div>
+          <div class="ws-body">On managed, a Toptal expert pushes the campaign live in Google Ads for you.</div>
+        </div>
+        <div class="ws-item">
+          <div class="ws-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></div>
+          <div class="ws-title">Built to scale</div>
+          <div class="ws-body">Same engine runs across catalogs of any size, with recurring optimization loops.</div>
+        </div>
       </div>
     </div>
   </div>
