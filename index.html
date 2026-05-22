@@ -221,6 +221,7 @@ body {
   font-family: inherit;
 }
 .keyword-input:focus { outline: 2px solid var(--blue); border-color: var(--blue); }
+.keyword-input::placeholder { color: var(--mute); font-weight: 500; }
 .intent-note {
   margin-top: 10px;
   font-size: 12.5px; color: var(--mute);
@@ -1917,7 +1918,7 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </div>
         <div class="input-block">
           <label>2 · Target keyword</label>
-          <input class="keyword-input" id="keywordInput" value="Unilever" placeholder="e.g. Unilever">
+          <input class="keyword-input" id="keywordInput" placeholder="e.g. Unilever">
           <div class="intent-note">The keyword sets campaign intent. A competitor name triggers a <strong>conquesting</strong> campaign. A category term triggers a category push.</div>
         </div>
       </div>
