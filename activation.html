@@ -1302,9 +1302,10 @@ table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { bor
 .ap-card:hover { border-color: var(--blue); box-shadow: 0 8px 26px rgba(10,18,64,0.10); transform: translateY(-2px); }
 .ap-card:focus-visible { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(42,108,255,0.25); }
 .ap-card--live { border-color: rgba(42,108,255,0.55); box-shadow: 0 4px 18px rgba(32,78,207,0.10); }
-.ap-card h3 { font-size:17px; font-weight:700; color:var(--navy); margin:0 0 8px; letter-spacing:-0.01em; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.ap-pkgname { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; color:var(--mute); margin:0 0 10px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.ap-card h3 { font-size:16.5px; font-weight:700; color:var(--navy); margin:0 0 9px; letter-spacing:-0.01em; line-height:1.34; }
 .ap-live { font-size:9.5px; letter-spacing:0.1em; font-weight:800; color:var(--white); background:var(--blue); padding:2px 7px; border-radius:999px; }
-.ap-blurb { font-size:14px; color:var(--slate); margin:0; line-height:1.5; }
+.ap-blurb { font-size:13.5px; color:var(--slate); margin:0; line-height:1.5; }
 .ap-card-foot { margin-top:18px; }
 .ap-meta { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px; }
 .ap-tag { font-size:10.5px; letter-spacing:0.08em; font-weight:700; color:var(--blue); background:var(--blue-soft); padding:4px 9px; border-radius:5px; }
@@ -1942,7 +1943,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       <div class="ap-grid">
         <article class="ap-card" data-id="sdr-in-a-box" tabindex="0" role="button" aria-label="SDR-in-a-Box">
           <div class="ap-card-top">
-            <h3>SDR-in-a-Box</h3>
+            <div class="ap-pkgname">SDR-in-a-Box</div>
+            <h3>SDR-scale pipeline generation at a fraction of headcount cost.</h3>
             <p class="ap-blurb">Automated ICP generation, outreach sequencing, and lead qualification. Scales pipeline without adding reps.</p>
           </div>
           <div class="ap-card-foot">
@@ -1955,7 +1957,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="deal-intelligence" tabindex="0" role="button" aria-label="Deal Intelligence Engine">
           <div class="ap-card-top">
-            <h3>Deal Intelligence Engine</h3>
+            <div class="ap-pkgname">Deal Intelligence Engine</div>
+            <h3>Higher win rates from coaching that scales to every rep and every deal.</h3>
             <p class="ap-blurb">Real-time coaching on open deals: risk signals, next best actions, and competitive positioning.</p>
           </div>
           <div class="ap-card-foot">
@@ -1968,7 +1971,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="inbound-response" tabindex="0" role="button" aria-label="Inbound Lead Response Engine">
           <div class="ap-card-top">
-            <h3>Inbound Lead Response Engine</h3>
+            <div class="ap-pkgname">Inbound Lead Response Engine</div>
+            <h3>More converted inbound from responding before the competition does.</h3>
             <p class="ap-blurb">Cuts first response from hours to under 60 seconds with AI qualification and intelligent routing.</p>
           </div>
           <div class="ap-card-foot">
@@ -1981,7 +1985,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="renewal-expansion" tabindex="0" role="button" aria-label="Renewal &amp; Expansion AI">
           <div class="ap-card-top">
-            <h3>Renewal &amp; Expansion AI</h3>
+            <div class="ap-pkgname">Renewal &amp; Expansion AI</div>
+            <h3>More net revenue retained and expanded without more CSM headcount.</h3>
             <p class="ap-blurb">Surfaces expansion opportunities and churn risk in the base, and automates renewal outreach.</p>
           </div>
           <div class="ap-card-foot">
@@ -2007,7 +2012,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       <div class="ap-grid">
         <article class="ap-card ap-card--live" data-id="managed-sem" tabindex="0" role="button" aria-label="Managed SEM Production">
           <div class="ap-card-top">
-            <h3>Managed SEM Production<span class="ap-live">LIVE</span></h3>
+            <div class="ap-pkgname">Managed SEM Production<span class="ap-live">LIVE</span></div>
+            <h3>More qualified paid-search coverage without scaling agency overhead.</h3>
             <p class="ap-blurb">Turn high-potential SKUs, categories, and competitors into launch-ready Google Ads campaigns, expert-reviewed before upload.</p>
           </div>
           <div class="ap-card-foot">
@@ -2020,7 +2026,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="content-engine" tabindex="0" role="button" aria-label="Content Production Engine">
           <div class="ap-card-top">
-            <h3>Content Production Engine</h3>
+            <div class="ap-pkgname">Content Production Engine</div>
+            <h3>More published, on-brand content without a bigger content team.</h3>
             <p class="ap-blurb">On-brand briefs, drafts, and refreshes across the funnel, produced at scale and reviewed by experts.</p>
           </div>
           <div class="ap-card-foot">
@@ -2033,7 +2040,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="lifecycle-crm" tabindex="0" role="button" aria-label="Lifecycle &amp; CRM Automation">
           <div class="ap-card-top">
-            <h3>Lifecycle &amp; CRM Automation</h3>
+            <div class="ap-pkgname">Lifecycle &amp; CRM Automation</div>
+            <h3>Higher retention and lifecycle revenue from journeys that run themselves.</h3>
             <p class="ap-blurb">Triggered, personalized lifecycle journeys across email and CRM that move customers to the next action.</p>
           </div>
           <div class="ap-card-foot">
@@ -2046,7 +2054,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="brand-whitespace" tabindex="0" role="button" aria-label="Brand Whitespace Discovery">
           <div class="ap-card-top">
-            <h3>Brand Whitespace Discovery</h3>
+            <div class="ap-pkgname">Brand Whitespace Discovery</div>
+            <h3>A prioritized map of where to compete next, backed by demand.</h3>
             <p class="ap-blurb">Maps untapped product, category, and messaging opportunities your competitors have not claimed.</p>
           </div>
           <div class="ap-card-foot">
@@ -2072,7 +2081,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       <div class="ap-grid">
         <article class="ap-card" data-id="tier1-deflection" tabindex="0" role="button" aria-label="Tier 1 Support Deflection">
           <div class="ap-card-top">
-            <h3>Tier 1 Support Deflection</h3>
+            <div class="ap-pkgname">Tier 1 Support Deflection</div>
+            <h3>Lower cost per ticket without lowering the quality of support.</h3>
             <p class="ap-blurb">Resolves common support queries autonomously from connected knowledge bases, escalating only past confidence thresholds.</p>
           </div>
           <div class="ap-card-foot">
@@ -2085,7 +2095,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="voc-intelligence" tabindex="0" role="button" aria-label="Voice-of-Customer Intelligence">
           <div class="ap-card-top">
-            <h3>Voice-of-Customer Intelligence</h3>
+            <div class="ap-pkgname">Voice-of-Customer Intelligence</div>
+            <h3>A live read on what customers actually want, not what surveys guess.</h3>
             <p class="ap-blurb">Sentiment clustering and theme extraction from tickets, reviews, and call transcripts, fed to your roadmap.</p>
           </div>
           <div class="ap-card-foot">
@@ -2098,7 +2109,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="proactive-outreach" tabindex="0" role="button" aria-label="Proactive Customer Outreach">
           <div class="ap-card-top">
-            <h3>Proactive Customer Outreach</h3>
+            <div class="ap-pkgname">Proactive Customer Outreach</div>
+            <h3>Fewer escalations and saves that happen before the customer churns.</h3>
             <p class="ap-blurb">AI-triggered outreach at churn-risk signals, milestone moments, and upsell points, before customers escalate.</p>
           </div>
           <div class="ap-card-foot">
@@ -2124,7 +2136,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       <div class="ap-grid">
         <article class="ap-card" data-id="invoice-review" tabindex="0" role="button" aria-label="Automated Invoice Review">
           <div class="ap-card-top">
-            <h3>Automated Invoice Review</h3>
+            <div class="ap-pkgname">Automated Invoice Review</div>
+            <h3>A faster, cleaner close with fewer payment errors.</h3>
             <p class="ap-blurb">Exception detection, three-way PO matching, and threshold-based human approval workflows for AP.</p>
           </div>
           <div class="ap-card-foot">
@@ -2137,7 +2150,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="budget-prevet" tabindex="0" role="button" aria-label="Budget Pre-Vetting AI">
           <div class="ap-card-top">
-            <h3>Budget Pre-Vetting AI</h3>
+            <div class="ap-pkgname">Budget Pre-Vetting AI</div>
+            <h3>Sharper capital decisions from analysis that is done before the meeting.</h3>
             <p class="ap-blurb">Portfolio spend analysis, anomaly detection, and variance reporting before committee review.</p>
           </div>
           <div class="ap-card-foot">
@@ -2150,7 +2164,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="close-recon" tabindex="0" role="button" aria-label="Close &amp; Reconciliation Agent">
           <div class="ap-card-top">
-            <h3>Close &amp; Reconciliation Agent</h3>
+            <div class="ap-pkgname">Close &amp; Reconciliation Agent</div>
+            <h3>A shorter close with a cleaner audit trail.</h3>
             <p class="ap-blurb">Automates matching, flagging, and narrative generation for the monthly close.</p>
           </div>
           <div class="ap-card-foot">
@@ -2176,7 +2191,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       <div class="ap-grid">
         <article class="ap-card" data-id="procurement-agent" tabindex="0" role="button" aria-label="Procurement Optimization Agent">
           <div class="ap-card-top">
-            <h3>Procurement Optimization Agent</h3>
+            <div class="ap-pkgname">Procurement Optimization Agent</div>
+            <h3>Faster sourcing decisions with risk surfaced up front.</h3>
             <p class="ap-blurb">Contract summarization, vendor risk scoring, and supplier comparison workflows for sourcing teams.</p>
           </div>
           <div class="ap-card-foot">
@@ -2189,7 +2205,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="contract-lifecycle" tabindex="0" role="button" aria-label="Contract Lifecycle AI">
           <div class="ap-card-top">
-            <h3>Contract Lifecycle AI</h3>
+            <div class="ap-pkgname">Contract Lifecycle AI</div>
+            <h3>Faster contracts with fewer missed obligations and risks.</h3>
             <p class="ap-blurb">AI-assisted drafting, review, risk flagging, and obligation tracking across the entire contract lifecycle.</p>
           </div>
           <div class="ap-card-foot">
@@ -2202,7 +2219,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="spend-intelligence" tabindex="0" role="button" aria-label="Spend Intelligence">
           <div class="ap-card-top">
-            <h3>Spend Intelligence</h3>
+            <div class="ap-pkgname">Spend Intelligence</div>
+            <h3>Hard-dollar savings from spend you could not see before.</h3>
             <p class="ap-blurb">Surfaces maverick spend, duplicate vendors, and consolidation savings across the organization.</p>
           </div>
           <div class="ap-card-foot">
@@ -2228,7 +2246,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       <div class="ap-grid">
         <article class="ap-card" data-id="hr-onboarding" tabindex="0" role="button" aria-label="HR Onboarding Automation">
           <div class="ap-card-top">
-            <h3>HR Onboarding Automation</h3>
+            <div class="ap-pkgname">HR Onboarding Automation</div>
+            <h3>A better day one for hires and far less admin for HR.</h3>
             <p class="ap-blurb">Orchestrated onboarding that personalizes the new-hire experience and cuts HR administrative burden.</p>
           </div>
           <div class="ap-card-foot">
@@ -2241,7 +2260,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="talent-screening" tabindex="0" role="button" aria-label="Talent Screening Engine">
           <div class="ap-card-top">
-            <h3>Talent Screening Engine</h3>
+            <div class="ap-pkgname">Talent Screening Engine</div>
+            <h3>Faster, fairer shortlists and less time lost to manual screening.</h3>
             <p class="ap-blurb">Structured, bias-aware screening and ranking of candidates against role rubrics.</p>
           </div>
           <div class="ap-card-foot">
@@ -2254,7 +2274,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="policy-assistant" tabindex="0" role="button" aria-label="Policy &amp; Knowledge Assistant">
           <div class="ap-card-top">
-            <h3>Policy &amp; Knowledge Assistant</h3>
+            <div class="ap-pkgname">Policy &amp; Knowledge Assistant</div>
+            <h3>Employees get answers instantly and HR stops fielding repeat questions.</h3>
             <p class="ap-blurb">Answers employee policy and HR questions from your source-of-truth documents.</p>
           </div>
           <div class="ap-card-foot">
@@ -2280,7 +2301,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
       <div class="ap-grid">
         <article class="ap-card" data-id="drift-monitoring" tabindex="0" role="button" aria-label="AI Drift &amp; Compliance Monitoring">
           <div class="ap-card-top">
-            <h3>AI Drift &amp; Compliance Monitoring</h3>
+            <div class="ap-pkgname">AI Drift &amp; Compliance Monitoring</div>
+            <h3>Early warning on AI risk across every system you run.</h3>
             <p class="ap-blurb">Continuous output scoring, statistical drift detection, and risk alerting across all deployed AI systems.</p>
           </div>
           <div class="ap-card-foot">
@@ -2293,7 +2315,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="enforcement-engine" tabindex="0" role="button" aria-label="Compliance Enforcement Engine">
           <div class="ap-card-top">
-            <h3>Compliance Enforcement Engine</h3>
+            <div class="ap-pkgname">Compliance Enforcement Engine</div>
+            <h3>Confidence that no AI output ships outside your policy.</h3>
             <p class="ap-blurb">Real-time policy enforcement intercepting and filtering outputs against regulatory and internal constraints.</p>
           </div>
           <div class="ap-card-foot">
@@ -2306,7 +2329,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></div>
         </article>
         <article class="ap-card" data-id="audit-trail" tabindex="0" role="button" aria-label="AI Audit Trail &amp; Reporting">
           <div class="ap-card-top">
-            <h3>AI Audit Trail &amp; Reporting</h3>
+            <div class="ap-pkgname">AI Audit Trail &amp; Reporting</div>
+            <h3>Defensible, board-ready proof of how every AI decision was made.</h3>
             <p class="ap-blurb">Complete audit trail of AI decisions, model versions, prompt changes, and human review, board-ready.</p>
           </div>
           <div class="ap-card-foot">
