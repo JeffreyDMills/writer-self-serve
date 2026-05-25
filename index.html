@@ -1358,6 +1358,14 @@ table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { bor
 @media (max-width: 980px){ .ap-why-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 560px){ .ap-why-grid { grid-template-columns: 1fr; } }
 
+/* ===================== PRODUCTION-READY CALLOUT ===================== */
+.ap-prodready { background: var(--surface); border-bottom:1px solid var(--line); padding: 56px 0; }
+.ap-prodready-inner { max-width: 880px; margin:0 auto; text-align:center; }
+.ap-prodready h2 { font-size:26px; color:var(--navy); font-weight:700; letter-spacing:-0.01em; margin:0 0 14px; }
+.ap-prodready p { font-size:16px; color:var(--slate); line-height:1.62; margin:0 0 22px; }
+.ap-prodready-chips { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+.ap-prodready-chips span { font-size:12.5px; font-weight:700; color:var(--blue); background:var(--blue-soft); border:1px solid rgba(32,78,207,0.18); padding:8px 14px; border-radius:999px; }
+
 /* ===================== PROOF BAND ===================== */
 .ap-proof { background: var(--white); border-bottom:1px solid var(--line); padding: 66px 0; }
 .ap-proof-inner { display:grid; grid-template-columns: 1.15fr 1fr; gap:42px; align-items:center; }
@@ -1897,7 +1905,7 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></a></div>
 <header class="hero">
   <div class="container hero-inner">
     <span class="kicker">Toptal · AI Activation</span>
-    <h1>Put AI to work across your business. With outcomes you can measure.</h1>
+    <h1>Put AI to work across every function. With outcomes you can measure.</h1>
     <p class="lede">A catalog of pre-built AI activation packages across every function, each tied to a business result and delivered by Toptal best-in-class talent. Pick the outcomes you want, and we activate them in production.</p>
     <div class="hero-cta-row">
       <button class="hero-btn" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">
@@ -1980,8 +1988,8 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></a></div>
     <div class="ap-proof-inner">
       <div class="ap-proof-copy">
         <div class="section-label">Proof, not promises</div>
-        <h2>Most companies' AI fails in production. Toptal proves yours is working.</h2>
-        <p><a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/" target="_blank" rel="noopener noreferrer">95% of AI pilots stall</a> before they show measurable impact. Toptal instruments every activation and shows the business outcome on a continuously updated dashboard, measured against agreed baselines and reported straight, so yours walks into the budget review with the numbers.</p>
+        <h2>Most AI pilots never become measurable production systems. Toptal proves yours is working.</h2>
+        <p><a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/" target="_blank" rel="noopener noreferrer">Too many AI initiatives stop before they show measurable impact</a>. Toptal instruments every activation with baseline metrics, workflow dashboards, expert review, and outcome reporting, so customers can see what changed and what should scale next.</p>
         <a class="hero-btn" href="outcomes-observability.html">Explore outcomes observability<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
       <div class="ap-proof-card">
@@ -2023,6 +2031,21 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></a></div>
   </div>
 </section>
 
+<section class="ap-prodready">
+  <div class="container">
+    <div class="ap-prodready-inner">
+      <h2>Production-ready means connected, governed, reviewed, and measured.</h2>
+      <p>Toptal activations are configured against real workflows, connected to the systems and data required to operate, reviewed by experts before launch, governed with clear controls, and measured against agreed baselines after deployment.</p>
+      <div class="ap-prodready-chips">
+        <span>Connected to your data and systems</span>
+        <span>Governed with clear controls</span>
+        <span>Reviewed by experts</span>
+        <span>Measured against baselines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="ap-quicknav">
   <div class="container ap-quicknav-inner">
     <span class="lab">Jump to</span>
@@ -2036,6 +2059,7 @@ GQC/jYk0QNGLqhoPu1FOdABfOnn7Th7H8/H/A3UwsWW7S7RGAAAAAElFTkSuQmCC"></a></div>
       <div class="section-label" style="color:var(--blue);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;">Activation packages</div>
       <h2 style="font-size:30px;color:var(--navy);margin:8px 0 10px;font-weight:700;letter-spacing:-0.01em;">100+ packages, grouped by function.</h2>
       <p style="font-size:16px;color:var(--slate);margin:0;max-width:680px;">Featured activations are shown for each function. Open any package to see what is included, the outcome it drives, and how to activate it.</p>
+      <p style="font-size:16px;color:var(--navy);font-weight:600;margin:16px 0 0;max-width:720px;">Every package starts with a defined outcome, then gets configured to your data, systems, workflows, and governance requirements.</p>
     </div>
   </div>
   <div class="container">
