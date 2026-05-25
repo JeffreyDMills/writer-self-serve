@@ -1287,6 +1287,18 @@ html { scroll-behavior: smooth; }
 .lp-kv { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); font-size:14px; }
 .lp-kv:last-child { border-bottom:none; }
 .lp-kv .role { color:var(--mute); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:0.04em; white-space:nowrap; }
+.obs-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:18px; }
+.obs-metric { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px; }
+.obs-metric .num { font-size:25px; font-weight:800; color:var(--navy); letter-spacing:-0.01em; line-height:1; }
+.obs-metric .lab { font-size:12px; color:var(--mute); margin-top:6px; }
+.obs-metric .delta { font-size:12px; font-weight:700; color:var(--green); margin-top:7px; }
+.obs-chart { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px; }
+.obs-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.obs-table th { text-align:left; padding:10px 12px; color:var(--mute); font-size:11px; text-transform:uppercase; letter-spacing:0.04em; border-bottom:1px solid var(--line); }
+.obs-table td { padding:11px 12px; border-bottom:1px solid var(--line); color:var(--ink); }
+.obs-table tr:last-child td { border-bottom:none; }
+.obs-table td.delta { color:var(--green); font-weight:700; white-space:nowrap; }
+@media (max-width:760px){ .obs-metrics { grid-template-columns:repeat(2,1fr); } }
 
 </style>
 </head>
