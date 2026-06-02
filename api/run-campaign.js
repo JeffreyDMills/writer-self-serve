@@ -11,7 +11,6 @@
 // Returns Writer's trigger response verbatim so the frontend can read the session reference.
 
 export const config = {
-  runtime: 'nodejs',
   maxDuration: 60, // Pro plan. Trigger returns fast; raise toward 300 only if Writer blocks.
 };
 
